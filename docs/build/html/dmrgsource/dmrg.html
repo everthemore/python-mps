@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dmrg module &mdash; python-mps 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="python-mps 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Code listings" href="../code.html" />
+    <link rel="next" title="iMPS module" href="../tebdsource/iMPS.html" />
+    <link rel="prev" title="Code listings" href="../code.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../index.html"><h1 style="font-size: 3em;">Python-MPS</h1></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../tebdsource/iMPS.html" title="iMPS module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../code.html" title="Code listings"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../code.html" accesskey="U">Code listings</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../code.html"
+                        title="previous chapter">Code listings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../tebdsource/iMPS.html"
+                        title="next chapter">iMPS module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/dmrgsource/dmrg.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-dmrg">
+<span id="dmrg-module"></span><h1>dmrg module<a class="headerlink" href="#module-dmrg" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="dmrg.dmrgSim">
+<em class="property">class </em><tt class="descclassname">dmrg.</tt><tt class="descname">dmrgSim</tt><big>(</big><em>mps</em>, <em>hamiltonian</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#dmrgSim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.dmrgSim" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<dl class="method">
+<dt id="dmrg.dmrgSim.full_sweep">
+<tt class="descname">full_sweep</tt><big>(</big><em>k=1</em>, <em>ncv=None</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#dmrgSim.full_sweep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.dmrgSim.full_sweep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform full sweep, assuming we start from left end.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.dmrgSim.minimize_energy">
+<tt class="descname">minimize_energy</tt><big>(</big><em>s</em>, <em>k</em>, <em>ncv</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#dmrgSim.minimize_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.dmrgSim.minimize_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimize the energy by optimizing the tensor on site s.</p>
+<p>TODO: Efficiently encode action of &#8216;M&#8217; on matrix, never compute M at all</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.dmrgSim.update_left_environment">
+<tt class="descname">update_left_environment</tt><big>(</big><em>s</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#dmrgSim.update_left_environment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.dmrgSim.update_left_environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the left environment of site s.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.dmrgSim.update_right_environment">
+<tt class="descname">update_right_environment</tt><big>(</big><em>s</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#dmrgSim.update_right_environment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.dmrgSim.update_right_environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the right environment of site s.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dmrg.mps">
+<em class="property">class </em><tt class="descclassname">dmrg.</tt><tt class="descname">mps</tt><big>(</big><em>L</em>, <em>d</em>, <em>D</em>, <em>type='finite'</em>, <em>threshold=1e-12</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<dl class="method">
+<dt id="dmrg.mps.measure">
+<tt class="descname">measure</tt><big>(</big><em>ops</em>, <em>sites</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps.measure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute expectation value of (list of) operator(s).</p>
+<p>Assumes that the isometric gauge is centered on the left-most site, and
+that all other matrices are right-normalized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>- Ops (numpy array/matrix) or (list of numpy arrays/matrices)</strong></p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>If a single operator is specified, a single site has to be specified.
+If a list of operators is given, then also an equal length list with 
+different sites has to be given.</p>
+</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>sites (int) or (list of ints)</dt>
+<dd><p class="first last">Sites on which corresponding operators act</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.mps.move_gauge_left">
+<tt class="descname">move_gauge_left</tt><big>(</big><em>s</em>, <em>truncate=False</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps.move_gauge_left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps.move_gauge_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the isometric gauge point to site s-1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.mps.move_gauge_right">
+<tt class="descname">move_gauge_right</tt><big>(</big><em>s</em>, <em>truncate=False</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps.move_gauge_right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps.move_gauge_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the isometric gauge point to site s+1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.mps.orthogonalize">
+<tt class="descname">orthogonalize</tt><big>(</big><em>to='left'</em>, <em>truncate=False</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps.orthogonalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps.orthogonalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move gauge to either end of system 
+So far, only finite system.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.mps.set_product_state">
+<tt class="descname">set_product_state</tt><big>(</big><em>state</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps.set_product_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps.set_product_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set MPS matrices to a product state, and fully left-orthogonalize</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dmrg.mps.set_random_state">
+<tt class="descname">set_random_state</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dmrg.html#mps.set_random_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.mps.set_random_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomize MPS matrices, and fully left-orthogonalize</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="dmrg.svd">
+<tt class="descclassname">dmrg.</tt><tt class="descname">svd</tt><big>(</big><em>A</em>, <em>full_matrices=False</em><big>)</big><a class="reference internal" href="../_modules/dmrg.html#svd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dmrg.svd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../tebdsource/iMPS.html" title="iMPS module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../code.html" title="Code listings"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../code.html" >Code listings</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Evert van Nieuwenburg.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

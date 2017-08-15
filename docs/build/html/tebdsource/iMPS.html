@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>iMPS module &mdash; python-mps 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="python-mps 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Code listings" href="../code.html" />
+    <link rel="next" title="iTEBD module" href="iTEBD.html" />
+    <link rel="prev" title="dmrg module" href="../dmrgsource/dmrg.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../index.html"><h1 style="font-size: 3em;">Python-MPS</h1></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="iTEBD.html" title="iTEBD module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../dmrgsource/dmrg.html" title="dmrg module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../code.html" accesskey="U">Code listings</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../dmrgsource/dmrg.html"
+                        title="previous chapter">dmrg module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="iTEBD.html"
+                        title="next chapter">iTEBD module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tebdsource/iMPS.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-iMPS">
+<span id="imps-module"></span><h1>iMPS module<a class="headerlink" href="#module-iMPS" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="iMPS.iMPS">
+<em class="property">class </em><tt class="descclassname">iMPS.</tt><tt class="descname">iMPS</tt><big>(</big><em>L</em>, <em>d</em>, <em>D</em>, <em>tol=1e-08</em>, <em>pure=True</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infinite Matrix Product State</p>
+<dl class="docutils">
+<dt>Description:</dt>
+<dd>Object for representing an Infinite Matrix Product State. 
+Stores the MPS matrices B[i], Lambda[i] and Chi[i] (bond dimension).</dd>
+<dt>Conventions:</dt>
+<dd>Lambda[i] is the bond between site i and i+1.</dd>
+</dl>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="iMPS.iMPS.getEntEntr">
+<tt class="descname">getEntEntr</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.getEntEntr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.getEntEntr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the entanglement entropy for each of the bonds</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.getTensor">
+<tt class="descname">getTensor</tt><big>(</big><em>site</em>, <em>full=False</em>, <em>form='R'</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.getTensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.getTensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return MPS tensor for given site. If not full, return only up to current bond dimension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.getTheta">
+<tt class="descname">getTheta</tt><big>(</big><em>bond</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.getTheta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.getTheta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct theta for bond</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.isCanonical">
+<tt class="descname">isCanonical</tt><big>(</big><em>threshold=1e-08</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.isCanonical"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.isCanonical" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if iMPS is in canonical form by checking threshold on each bond.</p>
+<p>Parameters:
+threshold: Sets threshold for what is considered canonical. 
+Defaults to 10^(-8)</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="iMPS.iMPS.loadFromFile">
+<em class="property">classmethod </em><tt class="descname">loadFromFile</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.loadFromFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.loadFromFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.measure">
+<tt class="descname">measure</tt><big>(</big><em>ops</em>, <em>sites</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.measure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.measure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.measure_mixed">
+<tt class="descname">measure_mixed</tt><big>(</big><em>ops</em>, <em>sites</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.measure_mixed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.measure_mixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute expectation value of (list of) operator(s).</p>
+<p>Assumes that the isometric gauge is centered on the left-most site, and
+that all other matrices are right-normalized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>- Ops (numpy array/matrix) or (list of numpy arrays/matrices)</strong></p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>If a single operator is specified, a single site has to be specified.
+If a list of operators is given, then also an equal length list with 
+different sites has to be given.</p>
+</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>sites (int) or (list of ints)</dt>
+<dd><p class="first last">Sites on which corresponding operators act</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.measure_pure">
+<tt class="descname">measure_pure</tt><big>(</big><em>ops</em>, <em>sites</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.measure_pure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.measure_pure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute expectation value of (list of) operator(s).</p>
+<p>Assumes that the isometric gauge is centered on the left-most site, and
+that all other matrices are right-normalized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>- Ops (numpy array/matrix) or (list of numpy arrays/matrices)</strong></p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>If a single operator is specified, a single site has to be specified.
+If a list of operators is given, then also an equal length list with 
+different sites has to be given.</p>
+</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>sites (int) or (list of ints)</dt>
+<dd><p class="first last">Sites on which corresponding operators act</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.orthogonalize">
+<tt class="descname">orthogonalize</tt><big>(</big><em>tol=1e-12</em>, <em>truncate=True</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.orthogonalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.orthogonalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Orthogonalize the whole MPS.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>threshold: Threshold up to which the MPS has to be orthogonal.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.saveToFile">
+<tt class="descname">saveToFile</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.saveToFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.saveToFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save MPS to a file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.set_infinite_temperature_state">
+<tt class="descname">set_infinite_temperature_state</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.set_infinite_temperature_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.set_infinite_temperature_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set infinite temperature state - only for non-pure!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.set_product_state">
+<tt class="descname">set_product_state</tt><big>(</big><em>state=None</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.set_product_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.set_product_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a product state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.set_random_state">
+<tt class="descname">set_random_state</tt><big>(</big><em>ortho=True</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.set_random_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.set_random_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the state of the MPS to a random one</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.iMPS.swap">
+<tt class="descname">swap</tt><big>(</big><em>bond</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#iMPS.swap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.iMPS.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap sites connected by bond.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iMPS.transferMat">
+<em class="property">class </em><tt class="descclassname">iMPS.</tt><tt class="descname">transferMat</tt><big>(</big><em>mps1</em>, <em>mps2=None</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#transferMat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.transferMat" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<dl class="method">
+<dt id="iMPS.transferMat.left_eigvec">
+<tt class="descname">left_eigvec</tt><big>(</big><em>k=1</em>, <em>tol=1e-10</em>, <em>init=None</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#transferMat.left_eigvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.transferMat.left_eigvec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute dominant left eigenvector of transfermatrix with tensor A.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iMPS.transferMat.right_eigvec">
+<tt class="descname">right_eigvec</tt><big>(</big><em>k=1</em>, <em>tol=1e-10</em>, <em>init=None</em><big>)</big><a class="reference internal" href="../_modules/iMPS.html#transferMat.right_eigvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iMPS.transferMat.right_eigvec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute dominant right eigenvector of transfermatrix with tensors A.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="iTEBD.html" title="iTEBD module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../dmrgsource/dmrg.html" title="dmrg module"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../code.html" >Code listings</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Evert van Nieuwenburg.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

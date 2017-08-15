@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>iTEBD module &mdash; python-mps 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="python-mps 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Code listings" href="../code.html" />
+    <link rel="next" title="superOps module" href="superOps.html" />
+    <link rel="prev" title="iMPS module" href="iMPS.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../index.html"><h1 style="font-size: 3em;">Python-MPS</h1></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="superOps.html" title="superOps module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="iMPS.html" title="iMPS module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../code.html" accesskey="U">Code listings</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="iMPS.html"
+                        title="previous chapter">iMPS module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="superOps.html"
+                        title="next chapter">superOps module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tebdsource/iTEBD.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-iTEBD">
+<span id="itebd-module"></span><h1>iTEBD module<a class="headerlink" href="#module-iTEBD" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="iTEBD.svd">
+<tt class="descclassname">iTEBD.</tt><tt class="descname">svd</tt><big>(</big><em>A</em>, <em>chi=0</em>, <em>full_matrices=False</em>, <em>compute_uv=True</em><big>)</big><a class="reference internal" href="../_modules/iTEBD.html#svd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iTEBD.svd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the SVD of matrix A.</p>
+<p>Performs the SVD of a matrix A, and returns U, S, Vh just as the scipy version does.
+First and foremost this is a wrapper for the scipy.linalg SVD function, but if it
+fails to compute, the function resorts to a manual SVD.</p>
+<p>Parameters:
+A (matrix):  The matrix to perform the SVD on.
+full_matrices (bool): If False, truncates the matrices to match the number of singular values.
+compute_uv (bool): If True, computes the U and V.H matrices.</p>
+<p>Returns:
+U (matrix): Left orthonormal singular matrix
+S (array):  Array of singular values
+V.H (matrix): Hermitian conjugate of right singular matrix</p>
+<p>TODO: the sparse svd is much faster and much more memory efficient. But it needs
+an explicit number of how many values/vectors to compute. Can we set it to
+the &#8216;chi&#8217; first values? What if the user doesn&#8217;t want to limit chi but
+limit the error?</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="iTEBD.swap">
+<tt class="descclassname">iTEBD.</tt><tt class="descname">swap</tt><big>(</big><em>mps</em>, <em>bond</em>, <em>threshold=1e-10</em><big>)</big><a class="reference internal" href="../_modules/iTEBD.html#swap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iTEBD.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap sites connected by bond.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="iTEBD.update_bond">
+<tt class="descclassname">iTEBD.</tt><tt class="descname">update_bond</tt><big>(</big><em>MPS</em>, <em>Op</em>, <em>bond</em>, <em>truncate=True</em>, <em>tol=1e-10</em><big>)</big><a class="reference internal" href="../_modules/iTEBD.html#update_bond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iTEBD.update_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an operator to the MPS at given bond and update it. 
+This version DOES use the Hastings improvement.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd><p class="first">MPS:    MPS to be acted upon.
+Op:     Operator to act on the specified bond. Is assumed to be in</p>
+<blockquote>
+<div>the form U.shape = (d1,d2,d1,d2), where d1 and d2 are the
+local Hilbert dimensions of the sites connected by the
+bond.</div></blockquote>
+<p class="last">bond:   Specifies the bond number of the MPS to act on.</p>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>err (float): The truncation error (want this to be 0). If this is closer</dt>
+<dd>to one, you may want to increase the bond dimension!</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="iTEBD.update_bond_conserve">
+<tt class="descclassname">iTEBD.</tt><tt class="descname">update_bond_conserve</tt><big>(</big><em>MPS</em>, <em>Op</em>, <em>bond</em>, <em>truncate=True</em>, <em>tol=1e-10</em><big>)</big><a class="reference internal" href="../_modules/iTEBD.html#update_bond_conserve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iTEBD.update_bond_conserve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update bond with conserving numbers</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="iTEBD.update_bond_inverse">
+<tt class="descclassname">iTEBD.</tt><tt class="descname">update_bond_inverse</tt><big>(</big><em>MPS</em>, <em>Op</em>, <em>bond</em>, <em>tol=1e-10</em><big>)</big><a class="reference internal" href="../_modules/iTEBD.html#update_bond_inverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iTEBD.update_bond_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an operator to the MPS at given bond and update it. 
+This version does NOT use the Hastings improvement, and so has to 
+compute inverse lambda matrices.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd><p class="first">MPS:    MPS to be acted upon.
+Op:     Operator to act on the specified bond. Is assumed to be in</p>
+<blockquote>
+<div>the form U.shape = (d1,d2,d1,d2), where d1 and d2 are the
+local Hilbert dimensions of the sites connected by the
+bond.</div></blockquote>
+<p class="last">bond:   Specifies the bond number of the MPS to act on.</p>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>err (float): The truncation error (want this to be 0). If this is closer</dt>
+<dd>to one, you may want to increase the bond dimension!</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="iTEBD.update_three_site_bond">
+<tt class="descclassname">iTEBD.</tt><tt class="descname">update_three_site_bond</tt><big>(</big><em>MPS</em>, <em>Op</em>, <em>left_most_site</em>, <em>verbose=0</em>, <em>ops=None</em><big>)</big><a class="reference internal" href="../_modules/iTEBD.html#update_three_site_bond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iTEBD.update_three_site_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an operator to the MPS at given bond and update it. 
+This version does NOT use the Hastings improvement.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>MPS:              MPS to be acted upon.
+U:                Operator to act on the three sites.
+left_most_site:   Specifies the left most site of the three to be updated</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>err (float): The truncation error (want this to be 0). If this is closer</dt>
+<dd>to one, you may want to increase the bond dimension!</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="superOps.html" title="superOps module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="iMPS.html" title="iMPS module"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../code.html" >Code listings</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Evert van Nieuwenburg.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>svd_zgesvd module &mdash; python-mps 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="python-mps 1.0 documentation" href="../index.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../index.html"><h1 style="font-size: 3em;">Python-MPS</h1></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/tebdsource/svd_zgesvd.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-svd_zgesvd">
+<span id="svd-zgesvd-module"></span><h1>svd_zgesvd module<a class="headerlink" href="#module-svd_zgesvd" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="svd_zgesvd.isComplexType">
+<tt class="descclassname">svd_zgesvd.</tt><tt class="descname">isComplexType</tt><big>(</big><em>t</em><big>)</big><a class="reference internal" href="../_modules/svd_zgesvd.html#isComplexType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#svd_zgesvd.isComplexType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="svd_zgesvd.svd_zgesvd">
+<tt class="descclassname">svd_zgesvd.</tt><tt class="descname">svd_zgesvd</tt><big>(</big><em>a</em>, <em>full_matrices=1</em>, <em>compute_uv=1</em><big>)</big><a class="reference internal" href="../_modules/svd_zgesvd.html#svd_zgesvd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#svd_zgesvd.svd_zgesvd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Singular Value Decomposition of a complex matrix.</p>
+<p>Factorizes the matrix <cite>a</cite> into two unitary matrices, <tt class="docutils literal"><span class="pre">U</span></tt> and <tt class="docutils literal"><span class="pre">Vh</span></tt>,
+and a 1-dimensional array of singular values, <tt class="docutils literal"><span class="pre">s</span></tt> (real, non-negative),
+such that <tt class="docutils literal"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">U</span> <span class="pre">S</span> <span class="pre">Vh</span></tt>, where <tt class="docutils literal"><span class="pre">S</span></tt> is the diagonal
+matrix <tt class="docutils literal"><span class="pre">np.diag(s)</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like, shape (M, N)</p>
+<blockquote>
+<div><p>Matrix to decompose</p>
+</div></blockquote>
+<p><strong>full_matrices</strong> : boolean, optional</p>
+<blockquote>
+<div><p>If True (default), <tt class="docutils literal"><span class="pre">U</span></tt> and <tt class="docutils literal"><span class="pre">Vh</span></tt> are shaped
+<tt class="docutils literal"><span class="pre">(M,M)</span></tt> and <tt class="docutils literal"><span class="pre">(N,N)</span></tt>.  Otherwise, the shapes are
+<tt class="docutils literal"><span class="pre">(M,K)</span></tt> and <tt class="docutils literal"><span class="pre">(K,N)</span></tt>, where <tt class="docutils literal"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">min(M,N)</span></tt>.</p>
+</div></blockquote>
+<p><strong>compute_uv</strong> : boolean</p>
+<blockquote>
+<div><p>Whether to compute <tt class="docutils literal"><span class="pre">U</span></tt> and <tt class="docutils literal"><span class="pre">Vh</span></tt> in addition to <tt class="docutils literal"><span class="pre">s</span></tt>.
+True by default.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>U</strong> : ndarray, shape (M, M) or (M, K) depending on <cite>full_matrices</cite></p>
+<blockquote>
+<div><p>Unitary matrix.</p>
+</div></blockquote>
+<p><strong>s</strong> :  ndarray, shape (K,) where <tt class="docutils literal"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">min(M,</span> <span class="pre">N)</span></tt></p>
+<blockquote>
+<div><p>The singular values, sorted so that <tt class="docutils literal"><span class="pre">s[i]</span> <span class="pre">&gt;=</span> <span class="pre">s[i+1]</span></tt>.</p>
+</div></blockquote>
+<p><strong>Vh</strong> : ndarray, shape (N,N) or (K,N) depending on <cite>full_matrices</cite></p>
+<blockquote>
+<div><p>Unitary matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>LinAlgError</strong></p>
+<blockquote class="last">
+<div><p>If SVD computation fails. 
+For details see zgesvd.f and dbdsqr.f of LAPACK</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Evert van Nieuwenburg.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
