@@ -10,25 +10,23 @@ import scipy.sparse
 # Groundstate of AKLT model using DMRG
 #-----
 L = 20
-d = 3
+d = 2
 
 # Define spin-1 matrices
-S0 = np.array( [[1, 0, 0], [0, 1, 0], [0, 0, 1]], dtype=np.complex128 )
-Sx = 1/np.sqrt(2)*np.array( [[0, 1, 0], [1, 0, 1], [0, 1, 0]], dtype=np.complex128 )
-Sy = 1/np.sqrt(2)*np.array( [[0,-1j, 0], [1j, 0, -1j], [0, 1j, 0]], dtype=np.complex128 )
-Sz = np.array( [[1, 0, 0], [0, 0, 0], [0, 0, -1]], dtype=np.complex128 )
+S0 = np.array( [[1, 0], [0, 1]], dtype=np.complex128 )
+Sx = np.array( [[0, 1], [1, 0]], dtype=np.complex128 )
+Sy = np.array( [[0,-1j], [1j, 0]], dtype=np.complex128 )
+Sz = np.array( [[1, 0], [0, -1]], dtype=np.complex128 )
 
 # Define Hamiltonian for AKLT model
 # We define H for every bond, and for every bond we have a list of 2-body or maximally 3-body terms
+J = -0.5
 H = {}
 for s in range(L-1):
-    H[s] = np.array([ [Sx, Sx], [Sy, Sy], [Sz, Sz], \
-                        [1/3*np.dot(Sx,Sx),np.dot(Sx,Sx)], [1/3*np.dot(Sx,Sy),np.dot(Sx,Sy)], [1/3*np.dot(Sx,Sz),np.dot(Sx,Sz)],
-                        [1/3*np.dot(Sy,Sx),np.dot(Sy,Sx)], [1/3*np.dot(Sy,Sy),np.dot(Sy,Sy)], [1/3*np.dot(Sy,Sz),np.dot(Sy,Sz)],
-                        [1/3*np.dot(Sz,Sx),np.dot(Sz,Sx)], [1/3*np.dot(Sz,Sy),np.dot(Sz,Sy)], [1/3*np.dot(Sz,Sz),np.dot(Sz,Sz)]])
+    H[s] = np.array([ [J*Sx, Sx], [J*Sy, Sy], [J*Sz, Sz] ] )
 
 # Set bond dimension D and initialize and MPS and simulation controller
-D = 10
+D = 4
 mps = dmrg.mps(L,d,D,threshold=1e-8)
 sim = dmrg.dmrgSim(mps, H)
 
