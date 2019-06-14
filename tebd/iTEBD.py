@@ -50,11 +50,11 @@ def svd(A, chi = 0, full_matrices = False, compute_uv = True):
     """
     # Try using the normal svd
     try:
+        #if A.dtype != np.complex128:
+        #    return svd_dgesvd.svd_dgesvd(A, full_matrices = full_matrices, compute_uv = compute_uv)
+        #else:
+        #    return svd_zgesvd.svd_zgesvd(A, full_matrices = full_matrices, compute_uv = compute_uv)
         return sp.linalg.svd(A, compute_uv = compute_uv, full_matrices = full_matrices, overwrite_a = True)
-        if A.dtype != np.complex128:
-            return svd_dgesvd.svd_dgesvd(A, full_matrices = full_matrices, compute_uv = compute_uv)
-        else:
-            return svd_zgesvd.svd_zgesvd(A, full_matrices = full_matrices, compute_uv = compute_uv)
 
     # Do manual if it failed
     except Exception as e:

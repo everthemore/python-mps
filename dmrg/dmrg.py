@@ -8,8 +8,8 @@ def svd(A, full_matrices=False):
     try:
         return np.linalg.svd(A, full_matrices)
     except Exception as e:
-        print e
-        print A
+        print(e)
+        #print A
 
 class mps:
     def __init__(self, L, d, D, type='finite', threshold=1e-12):
@@ -36,7 +36,7 @@ class mps:
         self.L = L
 
         # Parse local Hilbert space dimension
-        if isinstance(d, (int, long, float)):
+        if isinstance(d, (int, float)):
             self.d = d*np.ones(L)
         elif isinstance(d, (list, np.ndarray)):
             if len(d) != self.L:
@@ -46,7 +46,7 @@ class mps:
             raise RuntimeError("Local Hilbert space dimension(s) not a number, nor a list/array")
 
         # Parse bond dimension
-        if isinstance(D, (int, long, float)):
+        if isinstance(D, (int, float)):
             self.D = D*np.ones(L)
         elif isinstance(D, (list, np.ndarray)):
             if len(D) != self.L:
@@ -63,10 +63,12 @@ class mps:
         # Truncation threshold
         self.threshold = threshold
 
+        self.d = np.array([int(d) for d in self.d])
+        self.D = np.array([int(d) for d in self.D])
         # Set matrices to empty ones
         self.M = {}
         self.Lambda = {}
-        for s in xrange(self.L):
+        for s in range(self.L):
             self.M[s]      = np.zeros( (self.d[s], self.D[s-1], self.D[s]), dtype=np.complex128 )
             self.Lambda[s] = np.zeros( self.D[s] )
 
@@ -81,12 +83,12 @@ class mps:
 
         if to == "left":
             # Move isometric gauge to first site
-            for s in xrange(self.gauge_location,0,-1):
+            for s in range(self.gauge_location,0,-1):
                 self.move_gauge_left(s, truncate)
 
         if to == "right":
             # Move isometric gauge to last site
-            for s in xrange(self.gauge_location,self.L):
+            for s in range(self.gauge_location,self.L):
                 self.move_gauge_right(s, truncate)
 
     def set_random_state(self):
@@ -94,12 +96,15 @@ class mps:
          # Set matrices
         self.M = {}
         self.Lambda = {}
-        for s in xrange(self.L):
+        self.d = np.array([int(d) for d in self.d])
+        self.D = np.array([int(d) for d in self.D])
+
+        for s in range(self.L):
             self.M[s]      = np.random.rand( self.d[s], self.D[s-1], self.D[s] ) + 1j*np.random.rand( self.d[s], self.D[s-1], self.D[s] )
             self.Lambda[s] = np.zeros( self.D[s] )
 
         # Normalize
-        for s in xrange(self.L):
+        for s in range(self.L):
             norm = np.sqrt( np.tensordot( self.M[s].conj(), self.M[s], axes=((0,1,2),(0,1,2)) ) )
             self.M[s] /= norm
 
@@ -112,7 +117,11 @@ class mps:
         # Set matrices
         self.M = {}
         self.Lambda = {}
-        for s in xrange(self.L):
+
+        self.d = np.array([int(d) for d in self.d])
+        self.D = np.array([int(d) for d in self.D])
+
+        for s in range(self.L):
             self.M[s]      = np.zeros( (self.d[s], self.D[s-1], self.D[s]), dtype = np.complex128 )
             self.Lambda[s] = np.zeros( self.D[s] )
 
@@ -151,7 +160,7 @@ class mps:
         for l in np.arange(A.d[A.L-1]):
             res.M[res.L-1][l] = np.concatenate( [A.M[A.L-1][l], B.M[B.L-1][l]], axis=0 )
         # All other sides as direct sum
-        for s in xrange(1,A.L-1):
+        for s in range(1,A.L-1):
             for l in np.arange(A.d[s]):
                 res.M[s][l][:A.M[s][l].shape[0], :A.M[s][l].shape[1]] = A.M[s][l]
                 res.M[s][l][A.M[s][l].shape[0]:, A.M[s][l].shape[1]:] = B.M[s][l]
@@ -286,10 +295,10 @@ class dmrgSim:
         self.Renv[self.mps.L-2]  = np.zeros( (self.mps.M[self.mps.L-2].shape[2], self.mps.M[self.mps.L-2].shape[2]), dtype=np.complex128 )
 
         # Update environments once
-        for s in xrange(self.mps.L-1):
+        for s in range(self.mps.L-1):
             self.mps.move_gauge_right( s )
             self.update_left_environment( s+1 )
-        for s in xrange(self.mps.L-1, 0, -1):
+        for s in range(self.mps.L-1, 0, -1):
             self.mps.move_gauge_left( s )
             self.update_right_environment( s-1 )
 
@@ -465,7 +474,7 @@ class dmrgSim:
         # So we do full
         if dim <= 2:
             vecs = np.array([ [1,0], [0,1] ])
-            entry = np.array([ [np.dot( vecs[i], A.matvec( vecs[j] ) ) for i in xrange(2)] for j in xrange(2) ])
+            entry = np.array([ [np.dot( vecs[i], A.matvec( vecs[j] ) ) for i in range(2)] for j in range(2) ])
             eigval, eigvec = np.linalg.eigh(entry)
         else:
             eigval, eigvec = sp.sparse.linalg.eigsh( A, k=k, which='SA', ncv=ncv, v0 = np.reshape( self.mps.M[s], dim ) )
@@ -486,13 +495,13 @@ class dmrgSim:
         E       = []
 
         # Sweep right
-        for s in xrange(self.mps.L-1):
+        for s in range(self.mps.L-1):
             E.append( self.minimize_energy( s, k=k, ncv=ncv ) )
             self.mps.move_gauge_right( s )
             self.update_left_environment( s+1 )
 
         # Sweep left
-        for s in xrange(self.mps.L-1, 0, -1):
+        for s in range(self.mps.L-1, 0, -1):
             E.append( self.minimize_energy( s, k=k, ncv=ncv ) )
             self.mps.move_gauge_left( s )
             self.update_right_environment( s-1 )
