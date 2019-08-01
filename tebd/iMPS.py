@@ -690,9 +690,9 @@ class iMPS:
         """
 
         # Sort arguments from leftmost site to right
-        sorted_sites    = [a%self.L for a in sites]
-        sorted_indices  = np.argsort( sorted_sites )
-        sites           = np.array(sites)[sorted_indices]
+        modulo_sites    = [a%self.L for a in sites]
+        sorted_indices  = np.argsort( modulo_sites )
+        sites           = np.array(modulo_sites)[sorted_indices]
         ops             = np.array(ops)[sorted_indices]
 
         # Keep track of current_site and current_op, so that we know if we should
@@ -778,9 +778,9 @@ class iMPS:
         """
 
         # Sort arguments from leftmost site to right
-        sorted_sites    = [a%self.L for a in sites]
-        sorted_indices  = np.argsort( sorted_sites )
-        sites           = np.array(sites)[sorted_indices]
+        modulo_sites    = [a%self.L for a in sites]
+        sorted_indices  = np.argsort( modulo_sites )
+        sites           = np.array(modulo_sites)[sorted_indices]
         ops             = np.array(ops)[sorted_indices]
 
         # Keep track of current_site and current_op, so that we know if we should
