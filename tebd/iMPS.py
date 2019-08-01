@@ -777,7 +777,8 @@ class iMPS:
         """
 
         # Sort arguments from leftmost site to right
-        sorted_indices  = np.argsort( sites )
+        sorted_sites    = [a%self.L for a in sites]
+        sorted_indices  = np.argsort( sorted_sites )
         sites           = np.array(sites)[sorted_indices]
         ops             = np.array(ops)[sorted_indices]
 
