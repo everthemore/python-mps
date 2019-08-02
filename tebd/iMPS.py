@@ -9,7 +9,7 @@ Implements class for infinite Matrix Product State
 """
 __author__      =   "Evert van Nieuwenburg"
 __copyright__   =   "Copyright 2015, CMT-QO group ETH Zurich"
-__version__     =   "1.0.1"
+__version__     =   "1.0.2"
 
 #--------------------------------------------------------------------------------
 # Import dependencies
@@ -22,6 +22,8 @@ import pickle as cPickle
 import copy
 from superOps import *
 import svd_dgesvd, svd_zgesvd
+
+print("iMPS version 1.0.2")
 
 #--------------------------------------------------------------------------------
 # Local SVD routine for stability
